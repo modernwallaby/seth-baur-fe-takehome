@@ -6,7 +6,7 @@ const H1 = styled.h1`
   color: rgb(12, 9, 55);
 `;
 
-function Header() {
+const Header = () => {
   return (
     <Container>
       <H1>Get a quote</H1>

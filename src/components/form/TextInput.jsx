@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Label from "./Label";
 import FormField from "./FormField";
@@ -11,14 +12,26 @@ const Input = styled.input`
 `;
 
 const TextInput = ({ name, value, callback, type }) => {
-  const htmlName = name.toLowerCase().replace(/\s/, '-');
+  const htmlName = name.toLowerCase().replace(/\s/, "-");
 
   return (
     <FormField>
       <Label htmlFor={htmlName}>{name}</Label>
-      <Input name={htmlName} type={type || "text"} value={value} onChange={(e) => callback(e.target.value)} />
+      <Input
+        name={htmlName}
+        type={type || "text"}
+        value={value}
+        onChange={(e) => callback(e.target.value)}
+      />
     </FormField>
   );
+};
+
+TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  callback: PropTypes.func.isRequired,
+  type: PropTypes.string,
 };
 
 export default TextInput;

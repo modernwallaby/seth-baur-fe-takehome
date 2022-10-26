@@ -27,20 +27,40 @@ const QuoteForm = () => {
   const [businessName, setBusinessName] = useState("");
   const [industry, setIndustry] = useState("");
   const [email, setEmail] = useState("");
-  const [annualSales, setAnnualSales] = useState(0);
-  const [annualPayroll, setAnnualPayroll] = useState(0);
-  const [numberOfEmployees, setNumberOfEmployees] = useState(0);
+  const [annualSales, setAnnualSales] = useState(50000);
+  const [annualPayroll, setAnnualPayroll] = useState(50000);
+  const [numberOfEmployees, setNumberOfEmployees] = useState(10);
   const [zipCode, setZipCode] = useState("");
 
   return (
     <>
       <Form>
         <TextInput name="Business name" value={businessName} callback={setBusinessName} />
-        <SelectInput name="Industry" options={industryOptions} value={industry} callback={setIndustry} />
+        <SelectInput
+          name="Industry"
+          options={industryOptions}
+          value={industry}
+          callback={setIndustry}
+        />
         <TextInput name="Email" value={email} callback={setEmail} type="email" />
-        <SelectInput name="Annual sales" options={monetaryOptions} value={annualSales} callback={setAnnualSales} />
-        <SelectInput name="Annual payroll" options={monetaryOptions} value={annualPayroll} callback={setAnnualPayroll} />
-        <TextInput name="Number of employees" value={numberOfEmployees} callback={setNumberOfEmployees} type="number" />
+        <SelectInput
+          name="Annual sales"
+          options={monetaryOptions}
+          value={annualSales}
+          callback={setAnnualSales}
+        />
+        <SelectInput
+          name="Annual payroll"
+          options={monetaryOptions}
+          value={annualPayroll}
+          callback={setAnnualPayroll}
+        />
+        <TextInput
+          name="Number of employees"
+          value={numberOfEmployees}
+          callback={setNumberOfEmployees}
+          type="number"
+        />
         <TextInput name="Zip code" value={zipCode} callback={setZipCode} />
       </Form>
 

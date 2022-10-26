@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const InnerContainer = styled.div`
@@ -13,10 +14,13 @@ const OuterContainer = styled.div`
 
 const Container = ({ bgColor, children }) => (
   <OuterContainer bgColor={bgColor}>
-    <InnerContainer>
-      {children}
-    </InnerContainer>
+    <InnerContainer>{children}</InnerContainer>
   </OuterContainer>
 );
+
+Container.propTypes = {
+  bgColor: PropTypes.string,
+  children: PropTypes.node,
+};
 
 export default Container;
