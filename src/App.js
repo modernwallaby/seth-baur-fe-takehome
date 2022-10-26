@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./components/Header";
 import Container from "./components/Container";
+import Home from "./pages/Home";
 
 const PageContent = styled.div`
   display: grid;
@@ -14,7 +15,7 @@ function App() {
     <PageContent>
       <Header />
       <Container bgColor="rgb(240, 242, 248)">
-        <p>Page content</p>
+        <Home />
       </Container>
     </PageContent>
   );
