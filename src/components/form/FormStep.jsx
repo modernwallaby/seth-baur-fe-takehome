@@ -8,7 +8,10 @@ const Step = styled.div`
   border: 1px solid #bbb;
   border-radius: 0.5rem;
   padding: 1rem;
-  width: 50%;
+
+  @media (min-width: 700px) {
+    width: 50%;
+  }
 `;
 
 const Options = styled.div`
