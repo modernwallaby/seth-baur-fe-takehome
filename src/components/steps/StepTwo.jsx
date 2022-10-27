@@ -11,11 +11,11 @@ import {
   setZipCode,
 } from "../../slices/quoteFormSlice";
 
-const StepTwo = ({ onPrevious, onSubmit }) => {
+const StepTwo = ({ onPrevious, onSubmit, formValid }) => {
   const dispatch = useDispatch();
 
   return (
-    <FormStep onPrevious={onPrevious} onSubmit={onSubmit}>
+    <FormStep onPrevious={onPrevious} onSubmit={onSubmit} formValid={formValid}>
       <SelectInput
         name="Annual sales"
         options={monetaryOptions}
@@ -51,6 +51,7 @@ const StepTwo = ({ onPrevious, onSubmit }) => {
 StepTwo.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,
+  formValid: PropTypes.bool,
 };
 
 export default StepTwo;

@@ -2,6 +2,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Button from "./form/Button";
 
+const H2 = styled.h2`
+  font-size: 1.75rem;
+  color: rgb(12, 9, 55);
+`;
+
 const ResetButton = styled(Button)`
   margin-top: 2rem;
 `;
@@ -15,7 +20,7 @@ const policyTypeNames = {
 const QuoteResult = ({ policyTypes, onReset }) => {
   return (
     <>
-      <h2>Your quote</h2>
+      <H2>Your quote</H2>
       <p>You are eligible for the following types of policies:</p>
       <ul>
         {policyTypes.map((policy) => (

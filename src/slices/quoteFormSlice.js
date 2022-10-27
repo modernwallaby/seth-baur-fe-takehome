@@ -8,7 +8,7 @@ const initialState = {
   email: "",
   annualSales: monetaryOptions[0].value,
   annualPayroll: monetaryOptions[0].value,
-  numberOfEmployees: 0,
+  numberOfEmployees: "",
   zipCode: "",
 };
 

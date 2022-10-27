@@ -30,16 +30,27 @@ const LeftButton = styled(Button)`
 
 const RightButton = styled(Button)`
   margin-left: auto;
+
+  ${({ isDisabled }) =>
+    isDisabled &&
+    `
+    background-color: #888;
+    cursor: auto;
+  `}
 `;
 
-const FormStep = ({ children, onPrevious, onNext, onSubmit }) => {
+const FormStep = ({ children, onPrevious, onNext, onSubmit, formValid }) => {
   return (
     <Step>
       <div>{children}</div>
       <Options>
         {onPrevious && <LeftButton onClick={onPrevious}>Previous</LeftButton>}
         {onNext && <RightButton onClick={onNext}>Next</RightButton>}
-        {onSubmit && <RightButton onClick={onSubmit}>Get quote</RightButton>}
+        {onSubmit && (
+          <RightButton onClick={() => formValid && onSubmit()} isDisabled={!formValid}>
+            Get quote
+          </RightButton>
+        )}
       </Options>
     </Step>
   );
@@ -50,6 +61,7 @@ FormStep.propTypes = {
   onPrevious: PropTypes.func,
   onNext: PropTypes.func,
   onSubmit: PropTypes.func,
+  formValid: PropTypes.bool,
 };
 
 export default FormStep;

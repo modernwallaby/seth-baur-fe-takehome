@@ -9,7 +9,12 @@ import { resetQuoteForm } from "../slices/quoteFormSlice";
 const QuoteForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(true);
   const [availablePolicyTypes, setAvailablePolicyTypes] = useState([]);
+  // const [availablePolicyTypes, setAvailablePolicyTypes] = useState(["BOP"]);
+  const formValid = useSelector((state) =>
+    Object.values(state.quoteForm).every((value) => value !== undefined && value !== "")
+  );
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
@@ -47,7 +52,7 @@ const QuoteForm = () => {
     <>
       {!submitted && currentStep === 1 && <StepOne onNext={() => setCurrentStep(2)} />}
       {!submitted && currentStep === 2 && (
-        <StepTwo onPrevious={() => setCurrentStep(1)} onSubmit={submit} />
+        <StepTwo onPrevious={() => setCurrentStep(1)} onSubmit={submit} formValid={formValid} />
       )}
       {submitted && <QuoteResult policyTypes={availablePolicyTypes} onReset={reset} />}
     </>
