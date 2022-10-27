@@ -8,6 +8,7 @@ const Button = styled.button`
   padding: 0.75rem 2rem;
   border: 0;
   cursor: pointer;
+  font-weight: bold;
 `;
 
 export default Button;

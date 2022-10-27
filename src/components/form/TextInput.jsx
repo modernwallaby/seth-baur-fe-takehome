@@ -4,14 +4,15 @@ import Label from "./Label";
 import FormField from "./FormField";
 
 const Input = styled.input`
-  width: 15rem;
+  width: 100%;
   padding: 0.5rem;
   font-size: 1.25rem;
   border: 1px solid #bbb;
   border-radius: 0.5rem;
+  box-sizing: border-box;
 `;
 
-const TextInput = ({ name, value, callback, type }) => {
+const TextInput = ({ name, value, callback, type, required }) => {
   const htmlName = name.toLowerCase().replace(/\s/, "-");
 
   return (
@@ -22,6 +23,7 @@ const TextInput = ({ name, value, callback, type }) => {
         type={type || "text"}
         value={value}
         onChange={(e) => callback(e.target.value)}
+        required={required}
       />
     </FormField>
   );
@@ -32,6 +34,7 @@ TextInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   callback: PropTypes.func.isRequired,
   type: PropTypes.string,
+  required: PropTypes.bool,
 };
 
 export default TextInput;

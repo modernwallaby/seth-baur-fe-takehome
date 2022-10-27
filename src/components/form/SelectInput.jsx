@@ -4,7 +4,7 @@ import Label from "./Label";
 import FormField from "./FormField";
 
 const Select = styled.select`
-  width: 16rem;
+  width: 100%;
   padding: 0.5rem;
   font-size: 1.25rem;
   border: 1px solid #bbb;
