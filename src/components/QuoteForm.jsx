@@ -1,23 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import TextInput from "./form/TextInput";
 import SelectInput from "./form/SelectInput";
 import Button from "./form/Button";
-
-const industryOptions = [
-  { value: "10537", name: "Plumbing" },
-  { value: "10392", name: "Software developer" },
-  { value: "10415", name: "Lawyer" },
-  { value: "10109", name: "Handyman" },
-];
-
-const monetaryOptions = [
-  { value: 50000, name: "$50k" },
-  { value: 75000, name: "$75k" },
-  { value: 100000, name: "$100k" },
-  { value: 150000, name: "$150k" },
-  { value: 200000, name: "$200k" },
-];
+import { setFormData } from "../slices/quoteFormSlice";
+import { industryOptions } from "../data/industries";
+import { monetaryOptions } from "../data/monetaryAmounts";
 
 const Form = styled.form`
   margin-bottom: 1.5rem;
@@ -31,6 +20,22 @@ const QuoteForm = () => {
   const [annualPayroll, setAnnualPayroll] = useState(50000);
   const [numberOfEmployees, setNumberOfEmployees] = useState(10);
   const [zipCode, setZipCode] = useState("");
+
+  const dispatch = useDispatch();
+
+  const submit = () => {
+    dispatch(
+      setFormData({
+        businessName,
+        industry,
+        email,
+        annualSales,
+        annualPayroll,
+        numberOfEmployees,
+        zipCode,
+      })
+    );
+  };
 
   return (
     <>
@@ -64,7 +69,7 @@ const QuoteForm = () => {
         <TextInput name="Zip code" value={zipCode} callback={setZipCode} />
       </Form>
 
-      <Button>Get quote</Button>
+      <Button onClick={() => submit()}>Get quote</Button>
     </>
   );
 };
