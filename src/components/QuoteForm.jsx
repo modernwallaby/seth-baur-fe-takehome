@@ -34,7 +34,7 @@ const QuoteForm = () => {
           contactEmail: state.quoteForm.email,
           grossAnnualSales: state.quoteForm.annualSales,
           annualPayroll: state.quoteForm.annualPayroll,
-          numEmployeees: state.quoteForm.numEmployeees,
+          numEmployees: state.quoteForm.numberOfEmployees,
           industryId: state.quoteForm.industry,
           locations: [{ zip: state.quoteForm.zipCode }],
         },

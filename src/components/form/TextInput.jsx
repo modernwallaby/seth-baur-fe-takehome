@@ -13,13 +13,13 @@ const Input = styled.input`
 `;
 
 const TextInput = ({ name, value, callback, type, required }) => {
-  const htmlName = name.toLowerCase().replace(/\s/, "-");
+  const id = name.toLowerCase().replace(/\s/, "-");
 
   return (
     <FormField>
-      <Label htmlFor={htmlName}>{name}</Label>
+      <Label htmlFor={id}>{name}</Label>
       <Input
-        name={htmlName}
+        id={id}
         type={type || "text"}
         value={value}
         onChange={(e) => callback(e.target.value)}

@@ -12,12 +12,12 @@ const Select = styled.select`
 `;
 
 const SelectInput = ({ name, options, value, callback }) => {
-  const htmlName = name.toLowerCase().replace(/\s/, "-");
+  const id = name.toLowerCase().replace(/\s/, "-");
 
   return (
     <FormField>
-      <Label htmlFor={htmlName}>{name}</Label>
-      <Select name={htmlName} value={value} onChange={(e) => callback(e.target.value)}>
+      <Label htmlFor={id}>{name}</Label>
+      <Select id={id} value={value} onChange={(e) => callback(e.target.value)}>
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.name}
